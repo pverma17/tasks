@@ -10,14 +10,14 @@ app.use(express.json());
 const port = process.env.PORT;
 
 app.get("/", (req, res) => {
-  res.redirect("/tasks");
+  res.redirect("/api/v1/tasks");
 });
 
-app.get("/tasks", (req, res) => {
+app.get("/api/v1/tasks", (req, res) => {
   res.json(getTasks());
 });
 
-app.get("/tasks/:id", (req, res) => {
+app.get("/api/v1/tasks/:id", (req, res) => {
   let id = Number(req.params.id);
   getTask(id)
     .then((task) => {
@@ -30,7 +30,7 @@ app.get("/tasks/:id", (req, res) => {
     });
 });
 
-app.patch("/tasks/:id", (req, res) => {
+app.patch("/api/v1/tasks/:id", (req, res) => {
   const id = Number(req.params.id);
   const body = req.body;
   patchTask(id, body)
@@ -48,7 +48,7 @@ app.patch("/tasks/:id", (req, res) => {
     });
 });
 
-app.delete("/tasks/:id", (req, res) => {
+app.delete("/api/v1/tasks/:id", (req, res) => {
   const id = Number(req.params.id);
   deleteTask(id)
     .then((success) => {
