@@ -61,4 +61,4 @@ function deleteTask(id) {
   }
 }
 
-export { getTasks, getTask, patchTask, deleteTask };
+module.exports = { getTasks, getTask, patchTask, deleteTask };

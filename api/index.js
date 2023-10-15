@@ -1,6 +1,6 @@
-import express from "express";
-import dotenv from "dotenv";
-import { deleteTask, getTask, getTasks, patchTask } from "./src/app.js";
+const express = require("express");
+const dotenv = require("dotenv");
+const { deleteTask, getTask, getTasks, patchTask } = require("../src/app.js");
 
 // Load Environment variables
 dotenv.config();
@@ -66,3 +66,5 @@ app.delete("/tasks/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Listening to port ${port}...`);
 });
+
+module.exports = app
