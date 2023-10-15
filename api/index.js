@@ -24,7 +24,7 @@ app.get("/api/v1/tasks/:id", (req, res) => {
       res.json(task);
     })
     .catch((e) => {
-      res.json({
+      res.status(404).json({
         message: e,
       });
     });
@@ -44,7 +44,7 @@ app.patch("/api/v1/tasks/:id", (req, res) => {
       }
     })
     .catch((e) => {
-      res.json({ message: e });
+      res.status(404).json({ message: e });
     });
 });
 
@@ -59,7 +59,7 @@ app.delete("/api/v1/tasks/:id", (req, res) => {
       }
     })
     .catch((e) => {
-      res.json({ message: e });
+      res.status(404).json({ message: e });
     });
 });
 
